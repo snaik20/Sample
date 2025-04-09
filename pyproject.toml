@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "random-quote-generator"
+version = "0.1.0"
+description = "A simple random quote generator application"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.13.2"
+
+[build-system]
+requires = ["poetry>=2.1.2"]
+
