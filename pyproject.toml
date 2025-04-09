@@ -11,6 +11,9 @@ python = "^3.13.2"
 [tool.poetry.scripts]
 random-quote-generator = "random_quote_generator.app:main"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
 [build-system]
 requires = ["poetry>=2.1.2"]
 
