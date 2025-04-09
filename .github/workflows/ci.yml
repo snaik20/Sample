@@ -38,6 +38,10 @@ jobs:
       - name: Run unit tests
         run: |
           poetry run python -m unittest discover tests
+      - name: Only runs on failure
+        if: ${{ failure() }}
+        run: |
+          echo "Unit tests failed"
 
   build:
     if: github.ref == 'refs/heads/main' # Only run on the main branch
@@ -69,3 +73,8 @@ jobs:
       - name: Build the app
         run: |
           poetry build
+
+      - name: Only runs on failure
+        if: ${{ failure() }}
+        run: |
+          echo "App build failed"
