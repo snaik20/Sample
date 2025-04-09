@@ -13,6 +13,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
 
     steps:
       - name: Checkout code
@@ -26,6 +28,7 @@ jobs:
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="/github/home/.local/bin:$PATH
 
       - name: Install dependencies
         run: |
@@ -38,6 +41,8 @@ jobs:
   build:
     if: github.ref == 'refs/heads/main' # Only run on the main branch
     runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
 
     steps:
       - name: Checkout code
@@ -51,6 +56,7 @@ jobs:
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="/github/home/.local/bin:$PATH
 
       - name: Install dependencies
         run: |
